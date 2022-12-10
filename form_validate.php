@@ -1,5 +1,6 @@
 <?php
 
+
 $firstNameErr = $lastNameErr = $designationErr = $affiliationErr = $genderErr = $regFeesErr = $paySlipErr = $emailErr = $phoneNoErr = "";
 $firstName = $lastName = $designation = $affiliation = $gender = $candidature = $regFees = $paySlip = $contact = $email = $phoneNo = $food = $accomodation = "";
 
