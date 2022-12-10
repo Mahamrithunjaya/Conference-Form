@@ -23,19 +23,21 @@
         $food_pref = $_POST['food-pref'];
         $accomodation_pref = $_POST['accomodation-pref'];
 
-        
-        $query = "INSERT INTO `ss_form`(`salutation`, `fname`, `lname`, `designation`, `affiliation`, `gender`, `candidature`, `registratonfees`,
-         `paymentslip`, `contactdetails`, `emailId`, `mobileNum`, `food`, `accomodation`) 
-         VALUES ('$salutaion', '$first_name', '$last_name', '$designation', '$affiliation', '$gender', '$candidature', '$reg_fees',
-         '$contact_details', '$email_id', '$phone_no', '$food_pref', '$accomodation_pref')";
+        if($salutaion != "" && $first_name != "" && $last_name != "" && $designation != "" && $affiliation != "" && $gender != "" && $candidature != "" && 
+        $reg_fees != "" && $filename != "" && $contact_details != "" && $email_id != "" && $phone_no != "" && $food_pref != "" && $accomodation_pref != "")
+        {
+            
+            $query = "INSERT INTO `ss_form`(`salutation`, `fname`, `lname`, `designation`, `affiliation`, `gender`, `candidature`, `registratonfees`,
+                                            `paymentslip`, `contactdetails`, `emailId`, `mobileNum`, `food`, `accomodation`) 
+                        VALUES ('$salutaion', '$first_name', '$last_name', '$designation', '$affiliation', '$gender', 
+                        '$candidature', '$reg_fees', '$folder_name', '$contact_details', '$email_id', '$phone_no', '$food_pref', '$accomodation_pref')";
 
         
-        $data = mysqli_query($connection, $query);
+            mysqli_query($connection, $query);
 
-        if($data){
-            echo "Data inserted";
-        } else{
-            echo "Failed";
+            
+
+
         }
     }
 ?>
