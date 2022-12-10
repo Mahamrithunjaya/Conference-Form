@@ -8,8 +8,8 @@
         $last_name = $_POST['lname'];
         $designation = $_POST['desgnation'];
         $affiliation = $_POST['affliation'];
-        $gender = $_POST['gender'];
-        $candidature = $_POST['candidature'];
+        $gender = @$_POST['gender'];
+        $candidature = @$_POST['candidature'];
         $reg_fees = $_POST['regfee'];
 
         $filename = $_FILES["payslip"]["name"];
@@ -30,7 +30,7 @@
             $query = "INSERT INTO `ss_form`(`salutation`, `fname`, `lname`, `designation`, `affiliation`, `gender`, `candidature`, `registratonfees`,
                                             `paymentslip`, `contactdetails`, `emailId`, `mobileNum`, `food`, `accomodation`) 
                         VALUES ('$salutaion', '$first_name', '$last_name', '$designation', '$affiliation', '$gender', 
-                        '$candidature', '$reg_fees', '$folder_name', '$contact_details', '$email_id', '$phone_no', '$food_pref', '$accomodation_pref')";
+                        '$candidature', '$reg_fees', '$filename', '$contact_details', '$email_id', '$phone_no', '$food_pref', '$accomodation_pref')";
 
         
             mysqli_query($connection, $query);
