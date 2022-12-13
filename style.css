@@ -29,7 +29,7 @@ body {
   max-width: 700px;
   width: 100%;
   background: #fff;
-  padding: 25px 30px;
+  padding: 35px 50px 20px;
   border-radius: 5px;
 }
 .container .title {
@@ -52,7 +52,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 20px 0 12px 0;
+  margin: 20px 10px 12px 0;
 }
 /* inside the form user details */
 form .user__details .input__box {

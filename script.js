@@ -7,11 +7,8 @@ var genderError = document.getElementById('gender-error');
 var candidatureError = document.getElementById('candidature-error');
 var registrationFeesError = document.getElementById('fee-error');
 var paySlipError = document.getElementById('paySlip-error');
-var addressError = document.getElementById('address-error');
 var emailError = document.getElementById('email-error');
 var mobileError = document.getElementById('mobile-error');
-var foodError = document.getElementById('food-error');
-var accomodationError = document.getElementById('accomodation-error');
 var submitError = document.getElementById('submit-error');
 
 
@@ -19,11 +16,12 @@ function validateSalutation(){
     var salutation = document.getElementById('salut').value;
 
     if (salutation == "") {
-        salutationError.innerHTML = '';
-        return true;
+        salutationError.innerHTML = '**Required';
+        return false;
     }
-    salutationError.innerHTML = '<img src="logo/Checkmark.svg" alt="">';
+    salutationError.innerHTML = "";
     return true;
+
 }
 
 function validateFName(){
@@ -45,7 +43,7 @@ function validateFName(){
         fnameError.innerHTML = ' **Fname should be less than 20 char';
         return false;
     }
-    fnameError.innerHTML = '<img src="logo/Checkmark.svg" alt="">';
+    fnameError.innerHTML = '';
     return true;
 }
 
@@ -68,7 +66,7 @@ function validateLName(){
         lnameError.innerHTML = ' **Lname should be less than 20 char';
         return false;
     }
-    lnameError.innerHTML = '<img src="logo/Checkmark.svg" alt="">';
+    lnameError.innerHTML = '';
     return true;
 }
 
@@ -83,7 +81,7 @@ function validateDesignation(){
         designationError.innerHTML = ' **Numeric not allowed';
         return false;
     }
-    designationError.innerHTML = '<img src="logo/Checkmark.svg" alt="">';
+    designationError.innerHTML = '';
     return true;
 }
 
@@ -98,7 +96,7 @@ function validateAffiliation(){
         affiliationError.innerHTML = ' **Numeric not allowed';
         return false;
     }
-    affiliationError.innerHTML = '<img src="logo/Checkmark.svg" alt="">';
+    affiliationError.innerHTML = '';
     return true;
 }
 
@@ -107,7 +105,7 @@ function validateCandidature(){
     var candidatureSelected = document.querySelector('input[name = "candidature"]:checked');
 
     if (candidatureSelected != null){
-        candidatureError.innerHTML = '<img src="logo/Checkmark.svg" alt="">';
+        candidatureError.innerHTML = '';
         return true;
     }
     candidatureError.innerHTML = ' **Please enter your gender';
@@ -130,7 +128,7 @@ function validateFees(){
         registrationFeesError.innerHTML = ' **Only digits please';
         return false;
     }
-    registrationFeesError.innerHTML = '<img src="logo/Checkmark.svg" alt="">';
+    registrationFeesError.innerHTML = '';
     return true;
 }
 
@@ -141,18 +139,7 @@ function validatePaySlip(){
         paySlipError.innerHTML = ' **Please upload the payment slip';
         return false;
     }
-    paySlipError.innerHTML = '<img src="logo/Checkmark.svg" alt="">';
-    return true;
-}
-
-function validateAddress(){
-    var address = document.getElementById('contact-details').value;
-
-    if (address == "") {
-        addressError.innerHTML = ' ';
-        return true;
-    }
-    addressError.innerHTML = '<img src="logo/Checkmark.svg" alt="">';
+    paySlipError.innerHTML = '';
     return true;
 }
 
@@ -167,7 +154,7 @@ function validateEmail(){
         emailError.innerHTML = ' **Email Invalid';
         return false;
     }
-    emailError.innerHTML = '<img src="logo/Checkmark.svg" alt="">';
+    emailError.innerHTML = '';
     return true;
 }
 
@@ -186,7 +173,7 @@ function validatePhone(){
         mobileError.innerHTML = ' **Only digits please';
         return false;
     }
-    mobileError.innerHTML = '<img src="logo/Checkmark.svg" alt="">';
+    mobileError.innerHTML = '';
     return true;
 }
 
@@ -195,7 +182,7 @@ function validateGender(){
     var genderSelected = document.querySelector('input[name = "gender"]:checked');
 
     if (genderSelected != null){
-        genderError.innerHTML = '<img src="logo/Checkmark.svg" alt="">';
+        genderError.innerHTML = '';
         return true;
     }
     genderError.innerHTML = ' **Please enter your gender';
@@ -203,36 +190,13 @@ function validateGender(){
 
 }
 
-function validateFood(){
-    var food = document.getElementById('food-pref').value;
-
-    if (food == "") {
-        foodError.innerHTML = '*';
-        return true;
-    }
-    foodError.innerHTML = '<img src="logo/Checkmark.svg" alt="">';
-    return true;
-}
-
-function validateAccomodation(){
-    var accomodation = document.getElementById('accomodation-pref').value;
-
-    if (accomodation == "") {
-        accomodationError.innerHTML = '*';
-        return true;
-    }
-    accomodationError.innerHTML = '<img src="logo/Checkmark.svg" alt="">';
-    return true;
-}
-
-
 function validateForm(){
     if(!validateSalutation() || !validateFName() || !validateLName() || !validateDesignation() || 
     !validateAffiliation() || !validateGender() || !validateCandidature() ||
-    !validateFees() || !validatePaySlip() || !validateAddress() || 
-    !validateEmail() || !validatePhone() || !validateFood() || !validateAccomodation()){
+    !validateFees() || !validatePaySlip() || 
+    !validateEmail() || !validatePhone() ){
         submitError.style.display = 'block';
-        submitError.innerHTML = 'Please fix the error to submit';
+        submitError.innerHTML = 'Please fix the error to submit';``
         setTimeout(function(){submitError.style.display = 'none';}, 3500)
         return false;
     }

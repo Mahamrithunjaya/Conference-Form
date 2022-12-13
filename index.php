@@ -27,39 +27,39 @@
           <option value="Ms.">Ms.</option>
           <option value="Mrs.">Mrs.</option>
         </select>
-        <span id="salutaion-error"></span>
+        <span id="salutaion-error" class="error-display"></span>
       </div>
       <div class="user__details">
 
         <div class="input__box">
-          <span><strong>First Name: <span class="mandate-fields">*</span></strong></span>
+          <span class="details">First Name: <span class="mandate-fields">*</span></span>
           <input type="text" placeholder="Enter Your First Name" name="fname" id="fname" value="<?= $firstName ?>" onkeyup="validateFName()">
           <span class="error-display" id="fname-error"></span>
         </div>
 
         <div class="input__box">
-          <span><strong>Last Name: *</strong></span>
+          <span class="details">Last Name: <span class="mandate-fields">*</span></span>
           <input type="text" placeholder="Enter Your Last Name" name="lname" id="lname" value="<?= $lastName ?>" onkeyup="validateLName()">
-          <span id="lname-error"></span>
+          <span id="lname-error" class="error-display"></span>
         </div>
 
         <div class="input__box">
-          <span><strong>Designation: *</strong></span>
+          <span class="details">Designation: <span class="mandate-fields">*</span></span>
           <input type="text" placeholder="Enter Your Last Name" name="desgnation" id="designation" value="<?= $designation ?>" onkeyup="validateDesignation()">
-          <span id="designation-error"></span>
+          <span id="designation-error" class="error-display"></span>
         </div>
 
         <div class="input__box">
-          <span><strong>Affilation:</strong></span>
+          <span class="details">Affilation: <span class="mandate-fields">*</span></span>
           <input type="text" placeholder="Enter Your Last Name" name="affliation" id="affiliation" value="<?= $affiliation ?>" onkeyup="validateAffiliation()">
-          <span id="affiliation-error"></span>
+          <span id="affiliation-error" class="error-display"></span>
         </div>
 
         <div class="gender__details">
           <input type="radio" name="gender" id="dot-1" value="Male" value="<?= $gender ?>" onclick="validateGender()">
           <input type="radio" name="gender" id="dot-2" value="Female" value="<?= $gender ?>" onclick="validateGender()">
           <input type="radio" name="gender" id="dot-3" value="Others" value="<?= $gender ?>" onclick="validateGender()">
-          <span class="gender__title">Gender</span>
+          <span class="gender__title">Gender <span class="mandate-fields">*</span></span>
           <div class="category">
             <label for="dot-1">
               <span class="dot one"></span>
@@ -74,7 +74,7 @@
               <span>Others</span>
             </label>
           </div>
-          <span id="gender-error"></span>
+          <span id="gender-error" class="error-display"></span>
         </div>
 
         <div class="candidature__details">
@@ -91,47 +91,52 @@
               <span>Participant</span>
             </label>
           </div>
-          <span id="candidature-error"></span>
+          <span id="candidature-error" class="error-display"></span>
         </div>
 
         <div class="input__box">
-          <span><strong>Registration Fees:</strong></span>
+          <span class="details">Registration Fees: <span class="mandate-fields">*</span></span>
           <input type="text" placeholder="Enter Your Last Name" name="regfee" id="regfee" value="<?= $regFees ?>" onkeyup="validateFees()">
-          <span id="fee-error"></span>
+          <span id="fee-error" class="error-display"></span>
         </div>
         <div class="input__box">
-          <span><strong>Payment Slip:</strong></span>
+          <span class="details">Payment Slip: <span class="mandate-fields">*</span></span>
           <input type="file" accept="image/*,.pdf" name="payslip" id="payslip" value="<?= $paySlip ?>" onchange="validatePaySlip()">
-          <span id="paySlip-error"></span>
+          <span id="paySlip-error" class="error-display"></span>
 
         </div>
         <div class="input__box">
-          <span><strong>Contact Details:</strong></span>
-          <input type="text" placeholder="Enter Your Address" name="contact-details" id="contact-details" value="<?= $contact ?>" onkeyup="validateAddress()">
-          <span id="address-error"></span>
+          <span class="details">Contact Details:</span>
+          <input type="text" placeholder="Enter Your Address" name="contact-details" id="contact-details" value="<?= $contact ?>">
+          <span id="address-error" class="error-display"></span>
         </div>
         <div class="input__box">
-          <span><strong>Mobile No.:</strong></span>
+          <span class="details">Email Id:</span>
+          <input type="email" placeholder="Enter Your Email Id" id="email-id" name="email-id" value="<?= $email ?>" onkeyup="validateEmail()">
+          <span id="email-error" class="error-display"></span>
+        </div>
+        <div class="input__box">
+          <span class="details">Mobile No.: <span class="mandate-fields">*</span></span>
           <input type="tel" placeholder="Enter your mobile number" name="phone-no" id="phone-no" value="<?= $phoneNo ?>" onkeyup="validatePhone()">
-          <span id="mobile-error"></span>
+          <span id="mobile-error" class="error-display"></span>
         </div>
         <div class="input__box">
-          <span><strong>Food Preference:</strong></span>
-          <select name="food-pref" id="food-pref" value="<?= $food ?>" onchange="validateFood()">
+          <span class="details">Food Preference:</span>
+          <select name="food-pref" id="food-pref" value="<?= $food ?>">
             <option value="X" selected="selected">--Select--</option>
             <option value="Veg">VEG</option>
             <option value="Non Veg">NON VEG</option>
           </select>
-          <span id="food-error"></span>
+          <span id="food-error" class="error-display"></span>
         </div>
         <div class="input__box">
-          <span><strong>Accomodation:</strong></span>
-          <select name="accomodation-pref" id="accomodation-pref" value="<?= $accomodation ?>" onchange="validateAccomodation()">
+          <span class="details">Accomodation:</span>
+          <select name="accomodation-pref" id="accomodation-pref" value="<?= $accomodation ?>">
             <option value="X" selected="selected">--Select--</option>
             <option value="Required">REQUIRED</option>
             <option value="Not required">NOT REQUIRED</option>
           </select>
-          <span id="accomodation-error"></span>
+          <span id="accomodation-error" class="error-display"></span>
         </div>
       </div>
 
