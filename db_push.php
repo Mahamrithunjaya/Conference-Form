@@ -22,11 +22,14 @@
         $phone_no = $_POST['phone-no'];
         $food_pref = $_POST['food-pref'];
         $accomodation_pref = $_POST['accomodation-pref'];
+        $success = '';
 
         if($salutaion != "" && $first_name != "" && $last_name != "" && $designation != "" && $affiliation != "" && $gender != "" && $candidature != "" && 
         $reg_fees != "" && $filename != "" && $contact_details != "" && $email_id != "" && $phone_no != "" && $food_pref != "" && $accomodation_pref != "")
         {
             
+            $success = 'success';
+
             $EMAIL_CHECK = "SELECT `emailId` FROM `ss_form` WHERE `emailId` = ? Limit 1";
             $query = "INSERT INTO `ss_form`(`salutation`, `fname`, `lname`, `designation`, `affiliation`, `gender`, `candidature`, `registratonfees`,
                                             `paymentslip`, `contactdetails`, `emailId`, `mobileNum`, `food`, `accomodation`) 
@@ -64,5 +67,8 @@
 
 
         }
+    }
+    else{
+        $success = '';
     }
 ?>

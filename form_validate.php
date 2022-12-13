@@ -2,10 +2,17 @@
 
 
 $firstNameErr = $lastNameErr = $designationErr = $affiliationErr = $genderErr = $regFeesErr = $paySlipErr = $emailErr = $phoneNoErr = "";
-$firstName = $lastName = $designation = $affiliation = $gender = $candidature = $regFees = $paySlip = $contact = $email = $phoneNo = $food = $accomodation = "";
+$salutation = $firstName = $lastName = $designation = $affiliation = $gender = $candidature = $regFees = $paySlip = $contact = $email = $phoneNo = $food = $accomodation = "";
 
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+    if(empty($_POST["salutation"])){
+        $salutation = "";
+    } else {
+      $salutation = test_input($_POST["salutation"]);
+    }
+
     if(empty($_POST["fname"])){
         $firstNameErr = "First Name is required";
     } else{
@@ -57,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $regFeesErr = "Paid Amount required";
     } else {
         $regFees = test_input($_POST["regfee"]);
-        if(!preg_match("/^[0-9]{5}$/", $regFees)){
+        if(!preg_match("/^[0-9]{3,5}$/", $regFees)){
             $regFeesErr = "Please enter the correct amount";
         }
     }
@@ -92,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $phoneNoErr = "Only digits are allowed";
         }
     }
-  
+
     if(empty($_POST["food-pref"])){
         $food = "";
     } else {
