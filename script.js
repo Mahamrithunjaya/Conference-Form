@@ -108,7 +108,7 @@ function validateCandidature(){
         candidatureError.innerHTML = '';
         return true;
     }
-    candidatureError.innerHTML = ' **Please enter your gender';
+    candidatureError.innerHTML = ' **Please choose any one';
         return false;
 
 }

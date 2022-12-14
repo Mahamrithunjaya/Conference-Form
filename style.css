@@ -10,23 +10,42 @@
 }
 
 :root {
-  --main-blue: #71b7e6;
-  --main-purple: #9b59b6;
+  --main-blue: #3a94cf;
+  --main-purple: #56cfc5;
   --main-grey: #ccc;
   --sub-grey: #d9d9d9;
 }
 
 body {
-  display: flex;
-  height: 100vh;
+  height: 100%;
   justify-content: center; /*center vertically */
   align-items: center; /* center horizontally */
   background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
   padding: 10px;
 }
+
+header div{
+    text-align: center;
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    position: relative;
+    padding: 1em 1em;
+}
+
+.technical-sponsors{
+    background-color: #3f85ee;
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    padding: 1em 1em;
+    margin-bottom: 25px;
+}
+
 /* container and form */
 .container {
   max-width: 700px;
+  margin: 0 auto;
   width: 100%;
   background: #fff;
   padding: 35px 50px 20px;
@@ -170,6 +189,7 @@ form .button input {
   outline: none;
   color: #fff;
   border: none;
+  cursor: pointer;
   font-size: 18px;
   font-weight: 500;
   border-radius: 5px;
@@ -205,26 +225,6 @@ form .button input:hover {
   }
 }
 
-
-.form-container .logo-name img{
-    width: 80px;
-    height: 50px;
-}
-
-.form-container .logo-name .conference-name{
-    font-size: 20px;
-    font-weight: bold;
-    float: right;
-    margin-top: 15px;
-}
-
-.technical-sponsors .sponsors-name{
-    font-size: 20px;
-    font-weight: bold;
-    padding: 0 30px;
-}
-
-
 ::placeholder{
     font-size: 14px;
 }
@@ -233,7 +233,7 @@ form .button input:hover {
     color: red;
 }
 
-form .user__details .input__box .error-display{
+form .user__details .input__box .error-display, .error-display{
     font-size: 14px;
     color: red;
 }
@@ -243,6 +243,6 @@ form .user__details .input__box .error-display{
 }
 
 img{
-    width: 100%;
-    height: 30px;
+    width: 120px;
+    height: 100px;
 }

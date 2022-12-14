@@ -13,24 +13,43 @@
 </head>
 
 <body>
+  <header>
+    <div>
+      <img src="logo/logo.png" alt="NBU_LOGO">
+      <h1>Conference Name</h1>
+    </div>
+
+  </header>
+  <div class="technical-sponsors">
+    Technical Sponsors:
+    <div>
+      Sponsor 1
+    </div>
+    <div>
+      Sponsor 2
+    </div>
+  </div>
 
   <div class="container">
+
     <div class="title">Conference Registration Form</div><br>
     <form method="post" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
 
-      <div class="input__box">
-        <span><strong>Salutation: </strong></span>
-        <select name="salutation" id="salut" onchange="validateSalutation()">
-          <option value="" selected="selected">--Select--</option>
-          <option value="Dr.">Dr.</option>
-          <option value="Mr.">Mr.</option>
-          <option value="Ms.">Ms.</option>
-          <option value="Mrs.">Mrs.</option>
-        </select>
-        <span id="salutaion-error" class="error-display"></span>
-      </div>
-      <div class="user__details">
 
+      <div class="user__details">
+        <div class="input__box">
+          <p class="mandate-fields">*Fields are mandatory</p><br>
+          <span>Salutation:</span>
+          <select name="salutation" id="salut" onchange="validateSalutation()">
+            <option value="" selected="selected">--Select--</option>
+            <option value="Dr.">Dr.</option>
+            <option value="Mr.">Mr.</option>
+            <option value="Ms.">Ms.</option>
+            <option value="Mrs.">Mrs.</option>
+          </select>
+          <span id="salutaion-error" class="error-display"></span>
+        </div>
+        <div class="input__box"></div>
         <div class="input__box">
           <span class="details">First Name: <span class="mandate-fields">*</span></span>
           <input type="text" placeholder="Enter Your First Name" name="fname" id="fname" value="<?= $firstName ?>" onkeyup="validateFName()">
@@ -59,7 +78,7 @@
           <input type="radio" name="gender" id="dot-1" value="Male" value="<?= $gender ?>" onclick="validateGender()">
           <input type="radio" name="gender" id="dot-2" value="Female" value="<?= $gender ?>" onclick="validateGender()">
           <input type="radio" name="gender" id="dot-3" value="Others" value="<?= $gender ?>" onclick="validateGender()">
-          <span class="gender__title">Gender <span class="mandate-fields">*</span></span>
+          <span class="gender__title">Gender: <span class="mandate-fields">*</span></span>
           <div class="category">
             <label for="dot-1">
               <span class="dot one"></span>
@@ -80,7 +99,7 @@
         <div class="candidature__details">
           <input type="radio" name="candidature" id="dot-11" value="Presenter" value="<?= $candidature ?>" onclick="validateCandidature()">
           <input type="radio" name="candidature" id="dot-12" value="Participant" value="<?= $candidature ?>" onclick="validateCandidature()">
-          <span class="candidature__title">Candidature</span>
+          <span class="candidature__title">Candidature:</span>
           <div class="category">
             <label for="dot-11">
               <span class="dot one_one"></span>
