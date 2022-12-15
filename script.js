@@ -6,7 +6,7 @@ var designationError = document.getElementById('designation-error');
 var genderError = document.getElementById('gender-error');
 var candidatureError = document.getElementById('candidature-error');
 var registrationFeesError = document.getElementById('fee-error');
-var paySlipError = document.getElementById('paySlip-error');
+// var paySlipError = document.getElementById('paySlip-error');
 var emailError = document.getElementById('email-error');
 var mobileError = document.getElementById('mobile-error');
 var submitError = document.getElementById('submit-error');
@@ -28,7 +28,7 @@ function validateFName(){
     var fname = document.getElementById('fname').value;
 
     if (fname.length == 0) {
-        fnameError.innerHTML = ' **FName is required';
+        fnameError.innerHTML = ' **First Name is required';
         return false;
     }
     if (!fname.match(/^[A-Za-z]*$/)) {
@@ -36,11 +36,11 @@ function validateFName(){
         return false;
     }
     if (fname.length < 3 ) {
-        fnameError.innerHTML = '**Fname require minimum 3 char';
+        fnameError.innerHTML = '**First Name require minimum 3 char';
         return false;
     }
     if (fname.length > 20) {
-        fnameError.innerHTML = ' **Fname should be less than 20 char';
+        fnameError.innerHTML = ' **First Name should be less than 20 char';
         return false;
     }
     fnameError.innerHTML = '';
@@ -51,7 +51,7 @@ function validateLName(){
     var lname = document.getElementById('lname').value;
 
     if (lname.length == 0) {
-        lnameError.innerHTML = ' **LName is required';
+        lnameError.innerHTML = ' **Last Name is required';
         return false;
     }
     if (!lname.match(/^[A-Za-z]*$/)) {
@@ -59,11 +59,11 @@ function validateLName(){
         return false;
     }
     if (lname.length < 3 ) {
-        lnameError.innerHTML = ' **Lname require minimum 3 char';
+        lnameError.innerHTML = ' **Last Name require minimum 3 char';
         return false;
     }
     if (lname.length > 20) {
-        lnameError.innerHTML = ' **Lname should be less than 20 char';
+        lnameError.innerHTML = ' **Last Name should be less than 20 char';
         return false;
     }
     lnameError.innerHTML = '';
@@ -74,7 +74,7 @@ function validateDesignation(){
     var designation = document.getElementById('designation').value;
 
     if (designation.length == 0) {
-        designationError.innerHTML = ' **LName is required';
+        designationError.innerHTML = ' **Designation is required';
         return false;
     }
     if (!designation.match(/^[A-Za-z]*$/)) {
@@ -89,7 +89,7 @@ function validateAffiliation(){
     var affiliation = document.getElementById('affiliation').value;
 
     if (affiliation.length == 0) {
-        affiliationError.innerHTML = ' **LName is required';
+        affiliationError.innerHTML = ' **Affiliation is required';
         return false;
     }
     if (!affiliation.match(/^[A-Za-z]*$/)) {
@@ -132,16 +132,16 @@ function validateFees(){
     return true;
 }
 
-function validatePaySlip(){
-    var paySlip = document.getElementById('payslip');
+// function validatePaySlip(){
+//     var paySlip = document.getElementById('payslip').files.length;
     
-    if (paySlip == "") {
-        paySlipError.innerHTML = ' **Please upload the payment slip';
-        return false;
-    }
-    paySlipError.innerHTML = '';
-    return true;
-}
+//     if (paySlip == 0) {
+//         paySlipError.innerHTML = ' **Please upload the payment slip';
+//         return false;
+//     }
+//     paySlipError.innerHTML = 'File is Selected';
+//     return true;
+// }
 
 function validateEmail(){
     var emailId = document.getElementById('email-id').value;
@@ -151,7 +151,7 @@ function validateEmail(){
         return false;
     }
     if (!emailId.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
-        emailError.innerHTML = ' **Email Invalid';
+        emailError.innerHTML = ' **Invalid Email Format';
         return false;
     }
     emailError.innerHTML = '';
@@ -185,7 +185,7 @@ function validateGender(){
         genderError.innerHTML = '';
         return true;
     }
-    genderError.innerHTML = ' **Please enter your gender';
+    genderError.innerHTML = ' **Please select your gender';
         return false;
 
 }

@@ -23,12 +23,9 @@
         $food_pref = $_POST['food-pref'];
         $accomodation_pref = $_POST['accomodation-pref'];
         $success = '';
-
         if($salutaion != "" && $first_name != "" && $last_name != "" && $designation != "" && $affiliation != "" && $gender != "" && $candidature != "" && 
         $reg_fees != "" && $filename != "" && $contact_details != "" && $email_id != "" && $phone_no != "" && $food_pref != "" && $accomodation_pref != "")
         {
-            
-            $success = 'success';
 
             $EMAIL_CHECK = "SELECT `emailId` FROM `ss_form` WHERE `emailId` = ? Limit 1";
             $query = "INSERT INTO `ss_form`(`salutation`, `fname`, `lname`, `designation`, `affiliation`, `gender`, `candidature`, `registratonfees`,
@@ -41,9 +38,13 @@
             $stmt->bind_result($email_id);
             $stmt->store_result();
             $rnum = $stmt->num_rows;
+
             if ($rnum == 0){
 
                 $stmt->close();
+
+                $success = 'success';
+                $hide = 1;
 
                 $stmt = $connection->prepare($query);
                 $stmt->bind_param("sssssssisssiss", $salutaion, $first_name, $last_name, $designation, $affiliation, $gender, 
@@ -56,15 +57,13 @@
                 //         '$candidature', '$reg_fees', '$filename', '$contact_details', '$email_id', '$phone_no', '$food_pref', '$accomodation_pref')";
                 // mysqli_query($connection, $query);
 
-                echo "New record inserted";
+                echo '<div class="container" style="background-color: green; color: white;">Thank you <strong>'.$first_name. ' ' .$last_name. '.</strong> <br> Your registration is successful ... <span style="font-size:50px;">&#128077;</span></div>';
             } else{
-                echo "Already used by some one";
+                echo '<span id="submit-error">Email Already used by some one</span>';
             }
 
             $stmt->close();
             $connection->close();
-            
-
 
         }
     }
