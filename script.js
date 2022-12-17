@@ -15,6 +15,7 @@ var submitError = document.getElementById('submit-error');
 function validateSalutation(){
     var salutation = document.getElementById('salut').value;
 
+    // Check if the field is empty
     if (salutation == "") {
         salutationError.innerHTML = '**Required';
         return false;
@@ -24,9 +25,11 @@ function validateSalutation(){
 
 }
 
+
 function validateFName(){
     var fname = document.getElementById('fname').value;
 
+    // Check if the field is empty
     if (fname.length == 0) {
         fnameError.innerHTML = ' **First Name is required';
         return false;
@@ -47,9 +50,11 @@ function validateFName(){
     return true;
 }
 
+
 function validateLName(){
     var lname = document.getElementById('lname').value;
 
+    // Check if the field is empty
     if (lname.length == 0) {
         lnameError.innerHTML = ' **Last Name is required';
         return false;
@@ -70,9 +75,11 @@ function validateLName(){
     return true;
 }
 
+
 function validateDesignation(){
     var designation = document.getElementById('designation').value;
 
+    // Check if the field is empty
     if (designation.length == 0) {
         designationError.innerHTML = ' **Designation is required';
         return false;
@@ -85,9 +92,11 @@ function validateDesignation(){
     return true;
 }
 
+
 function validateAffiliation(){
     var affiliation = document.getElementById('affiliation').value;
 
+    // Check if the field is empty
     if (affiliation.length == 0) {
         affiliationError.innerHTML = ' **Affiliation is required';
         return false;
@@ -99,6 +108,7 @@ function validateAffiliation(){
     affiliationError.innerHTML = '';
     return true;
 }
+
 
 function validateCandidature(){
     
@@ -113,9 +123,11 @@ function validateCandidature(){
 
 }
 
+
 function validateFees(){
     var regFees = document.getElementById('regfee').value;
 
+    // Check if the field is empty
     if (regFees.length == 0){
         registrationFeesError.innerHTML = ' **Paid Amount required';
         return false;
@@ -157,12 +169,12 @@ function validatePaySlip(){
 
       // Check the file size
       if (file.size > 1024 * 1024) {
-        paySlipError.innerHTML = 'File size too large: ' + file.name;
+        paySlipError.innerHTML = 'File size too large: ' + file.name + '(max 1MB)';
         continue;
       }
 
-      // File is valid, do something with it (e.g. upload to server)
-      paySlipError.innerHTML = ' File is valid: ' + file.name;
+      // File is valid
+      paySlipError.innerHTML = '<style>#paySlip-error {color: green;}</style> File is valid: ' + file.name;
     }
     return true;
 }
@@ -171,6 +183,7 @@ function validatePaySlip(){
 function validateEmail(){
     var emailId = document.getElementById('email-id').value;
 
+    // Check if the field is empty
     if (emailId.length == 0){
         emailError.innerHTML = ' **Email is required';
         return false;
@@ -183,9 +196,11 @@ function validateEmail(){
     return true;
 }
 
+
 function validatePhone(){
     var phoneNum = document.getElementById('phone-no').value;
 
+    // Check if the field is empty
     if (phoneNum.length == 0){
         mobileError.innerHTML = ' **Phone No. is required';
         return false;
@@ -202,6 +217,7 @@ function validatePhone(){
     return true;
 }
 
+
 function validateGender(){
     
     var genderSelected = document.querySelector('input[name = "gender"]:checked');
@@ -214,6 +230,7 @@ function validateGender(){
         return false;
 
 }
+
 
 function validateForm(){
     if(!validateSalutation() || !validateFName() || !validateLName() || !validateDesignation() || 

@@ -74,9 +74,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         // No file was uploaded or there was an error
         $paySlipErr = "Please upload the payment slip";
     } else {
-        $file_size = $_FILES['payslip']['size'];
-        $file_type = $_FILES['payslip']['type'];
-        $filename = $_FILES["payslip"]["name"];
+        $file_size = $_FILES['payslip']['size'];   //To get the file size
+        $file_type = $_FILES['payslip']['type'];  //To get the file type
+        $filename = $_FILES["payslip"]["name"];  //To get the file name
 
         // Validate the file data
         if ($file_size > 1048576) {
@@ -127,7 +127,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     } else {
       $accomodation = test_input($_POST["accomodation-pref"]);
     }
-
 
 }
 
