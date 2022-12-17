@@ -6,7 +6,7 @@ var designationError = document.getElementById('designation-error');
 var genderError = document.getElementById('gender-error');
 var candidatureError = document.getElementById('candidature-error');
 var registrationFeesError = document.getElementById('fee-error');
-// var paySlipError = document.getElementById('paySlip-error');
+var paySlipError = document.getElementById('paySlip-error');
 var emailError = document.getElementById('email-error');
 var mobileError = document.getElementById('mobile-error');
 var submitError = document.getElementById('submit-error');
@@ -132,16 +132,41 @@ function validateFees(){
     return true;
 }
 
-// function validatePaySlip(){
-//     var paySlip = document.getElementById('payslip').files.length;
-    
-//     if (paySlip == 0) {
-//         paySlipError.innerHTML = ' **Please upload the payment slip';
-//         return false;
-//     }
-//     paySlipError.innerHTML = 'File is Selected';
-//     return true;
-// }
+
+function validatePaySlip(){
+    var paySlip = document.getElementById('payslip');
+    // Get the list of selected files
+    var files = paySlip.files;
+
+    // Check if any files were selected
+    if (!files.length) {
+        paySlipError.innerHTML = ' **No files selected!';
+        return false;
+    }
+
+    // Iterate through the list of files
+    for (var i = 0; i < files.length; i++) {
+      // Get the current file
+      var file = files[i];
+
+      // Check the file type
+      if (!file.type.startsWith('application/pdf') && !file.type.startsWith('image/')) {
+        paySlipError.innerHTML = ' **File type not allowed: ' + file.name;
+        continue;
+      }
+
+      // Check the file size
+      if (file.size > 1024 * 1024) {
+        paySlipError.innerHTML = 'File size too large: ' + file.name;
+        continue;
+      }
+
+      // File is valid, do something with it (e.g. upload to server)
+      paySlipError.innerHTML = ' File is valid: ' + file.name;
+    }
+    return true;
+}
+
 
 function validateEmail(){
     var emailId = document.getElementById('email-id').value;

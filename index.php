@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <?php require_once("form_validate.php"); ?>
+  <?php require("form_validate.php"); ?>
   <link rel="stylesheet" href="style.css">
   <title>Registration Form</title>
 </head>
@@ -138,8 +138,8 @@
         <!-- Payment Slip Field -->
         <div class="input__box">
           <span class="details">Payment Slip: <span class="mandate-fields">*</span></span>
-          <input type="file" accept="image/*,.pdf" name="payslip" id="payslip" value="<?= $paySlip ?>" required>
-          <!-- <span id="paySlip-error" class="error-display"></span> -->
+          <input type="file" accept="application/pdf,image/jpeg,image/jpg" name="payslip" id="payslip" onchange="validatePaySlip()">
+          <span id="paySlip-error" class="error-display"></span>
         </div>
 
         <!-- Contact Details Field -->

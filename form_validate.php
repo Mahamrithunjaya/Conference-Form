@@ -5,6 +5,7 @@ $firstNameErr = $lastNameErr = $designationErr = $affiliationErr = $genderErr = 
 $salutation = $firstName = $lastName = $designation = $affiliation = $gender = $candidature = $regFees = $paySlip = $contact = $email = $phoneNo = $food = $accomodation = "";
 
 
+// Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if(empty($_POST["salutation"])){
@@ -69,10 +70,25 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         }
     }
 
-    if(empty($_POST["payslip"])){
+    if(!isset($_FILES['payslip']) || $_FILES['payslip']['error'] != 0){
+        // No file was uploaded or there was an error
         $paySlipErr = "Please upload the payment slip";
     } else {
-      $paySlip = test_input($_POST["payslip"]);
+        $file_size = $_FILES['payslip']['size'];
+        $file_type = $_FILES['payslip']['type'];
+        $filename = $_FILES["payslip"]["name"];
+
+        // Validate the file data
+        if ($file_size > 1048576) {
+            // File is too large
+            $paySlipErr = "The file is too large (max 1MB)";
+        } else if ($file_type != "application/pdf" && $file_type != "image/jpeg" && $file_type != "image/jpg") {
+            // File is not a PDF or JPEG or JPEG
+            $paySlipErr= "The file must be a PDF or JPEG or JPG";
+        } else{
+            // File is valid, so we can store it
+            $paySlip = test_input($filename);
+        }
     }
 
     if(empty($_POST["contact-details"])){
