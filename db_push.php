@@ -17,6 +17,8 @@
         $folder_name = "pay_slips/".$filename;
         move_uploaded_file($temp_file_name, $folder_name);
 
+        $db_filename = $first_name."_".$filename;
+
         $contact_details = $_POST['contact-details'];
         $email_id = $_POST['email-id'];
         $phone_no = $_POST['phone-no'];
@@ -48,7 +50,7 @@
 
                 $stmt = $connection->prepare($query);
                 $stmt->bind_param("sssssssisssiss", $salutaion, $first_name, $last_name, $designation, $affiliation, $gender, 
-                $candidature, $reg_fees, $filename, $contact_details, $email_id, $phone_no, $food_pref, $accomodation_pref);
+                $candidature, $reg_fees, $db_filename, $contact_details, $email_id, $phone_no, $food_pref, $accomodation_pref);
                 $stmt->execute();
                 
                 // $query = "INSERT INTO `ss_form`(`salutation`, `fname`, `lname`, `designation`, `affiliation`, `gender`, `candidature`, `registratonfees`,
